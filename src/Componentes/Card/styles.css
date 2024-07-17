@@ -1,0 +1,19 @@
+.product-container{
+    border-radius: 20px;
+    margin: 20px;
+    padding: 20px;
+    width: 200px;
+    height: auto;
+    display: grid;
+    place-items: center;
+    background-color:rgb(168, 229, 243);
+}
+
+.product-container-img{
+    width: 150px;
+    height: 150px;
+}
+
+.product-container-title{
+    margin: 2px;
+}
