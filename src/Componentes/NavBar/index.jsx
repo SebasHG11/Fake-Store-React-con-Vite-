@@ -11,9 +11,9 @@ export const NavBar = () =>{
             <nav className='NavBar'>
                 <ul>
                     <li><a href="">SkibiriShop</a></li>
-                    <li><a href="">SkibiriShop</a></li>
-                    <li><a href="">SkibiriShop</a></li>
-                    <li><a href="">SkibiriShop</a></li>
+                    <li><a href="">Categorias</a></li>
+                    <li><a href="">Cuenta</a></li>
+                    <li><a href="">Cerrar Sesión</a></li>
                     <li className='container-car'>
                         <a href="">
                             <ShoppingCartIcon style={{ width: '24px', height: '24px', marginRight: '8px', color: 'white' }} />
