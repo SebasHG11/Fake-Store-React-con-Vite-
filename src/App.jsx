@@ -3,6 +3,7 @@ import './App.css'
 import { useEffect, useState } from 'react'
 import { ContainerCards } from './Componentes/ContainerCards'
 import { Card } from './Componentes/Card'
+import { NavBar } from './Componentes/NavBar'
 
 export const App = () =>{
   const [data, setData] = useState([])
@@ -23,6 +24,7 @@ export const App = () =>{
 
   return(
     <>
+    <NavBar />
       <ContainerCards>
         {data &&
           data.map((p)=>(

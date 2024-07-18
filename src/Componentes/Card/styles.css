@@ -6,7 +6,11 @@
     height: auto;
     display: grid;
     place-items: center;
-    background-color:rgb(168, 229, 243);
+    border: 2px solid rgb(232, 232, 232);
+}
+
+.product-container:hover{
+    box-shadow: 10px 10px 10px yellowgreen;
 }
 
 .product-container-img{
@@ -14,6 +18,28 @@
     height: 150px;
 }
 
-.product-container-title{
+.product-container-name{
+    margin: 4px;
+}
+
+.product-container-categoria{
+    font-weight: bold;
+}
+
+.product-container-precio{
+    font-weight: bold;
+    color: yellowgreen;
     margin: 2px;
+}
+
+.agregar-carro{
+    background-color: yellowgreen;
+    color: white;
+    margin: 2px;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+.agregar-carro:hover{
+    cursor: pointer;
 }
