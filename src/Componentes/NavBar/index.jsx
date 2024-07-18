@@ -1,7 +1,11 @@
 import '../NavBar/styles.css'
+import { useContext } from 'react'
 import { ShoppingCartIcon } from '@heroicons/react/16/solid'
+import { AppContext } from '../../Context'
 
 export const NavBar = () =>{
+    const context = useContext(AppContext)
+
     return(
         <div className='container'>
             <nav className='NavBar'>
@@ -13,7 +17,7 @@ export const NavBar = () =>{
                     <li className='container-car'>
                         <a href="">
                             <ShoppingCartIcon style={{ width: '24px', height: '24px', marginRight: '8px', color: 'white' }} />
-                            <p className='car-numero'>5</p>
+                            <p className='car-numero'>{context.numCarrito}</p>
                         </a>
                     </li>
                 </ul>
