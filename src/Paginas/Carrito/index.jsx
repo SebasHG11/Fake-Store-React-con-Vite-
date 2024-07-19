@@ -1,5 +1,6 @@
-import { useContext } from 'react'
+import { Toaster, toast } from 'sonner'
 import '../Carrito/style.css'
+import { useContext } from 'react'
 import { AppContext } from '../../Context'
 import { Card } from '../../Componentes/Card'
 import { ContainerCards } from '../../Componentes/ContainerCards'
@@ -10,8 +11,16 @@ export const Carrito = () =>{
 
     const {sumaTotal} = useSumaTotal(context.carrito)
 
+    const handleComprarCarrito = (event) =>{
+        event.preventDefault()
+        context.setCarrito([])
+        context.setNumCarrito(0)
+        toast.success('¡Compra realizada con exito!')
+    }
+
     return(
         <>
+        <Toaster richColors />
         {(context.carrito.length === 0)
         &&
         <div className="mensaje-carrito">
@@ -23,7 +32,11 @@ export const Carrito = () =>{
             <>
             <div className='cabecera-carrito'>
                 <p>Total: ${sumaTotal}</p>
-                <span>Comprar</span>
+                <span
+                onClick={(event)=>{
+                    handleComprarCarrito(event)
+                }}
+                >Comprar</span>
             </div>
             <ContainerCards>
                     {context.carrito.map(p =>(

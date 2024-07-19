@@ -35,10 +35,14 @@ export const NavBar = () =>{
                         </NavLink>
                     </li>
                     <li>
-                        <a href="">Cuenta</a>
+                        <NavLink>
+                            Cuenta
+                        </NavLink> 
                     </li>
                     <li>
-                        <a href="">Cerrar Sesión</a>
+                        <NavLink>
+                            Cerrar Sesión
+                        </NavLink> 
                     </li>
                     <li className='container-car'>
                         <NavLink
