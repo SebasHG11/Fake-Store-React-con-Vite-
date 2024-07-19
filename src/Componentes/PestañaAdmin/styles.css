@@ -1,0 +1,19 @@
+.pestaña-admin{
+    position: fixed;
+    top: 50;
+    right: 0;
+    padding: 30px;
+    border: 2px yellowgreen solid;
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
+}
+
+.pestaña-admin span{
+    margin-top: 8px;
+    color: white;
+    background-color: yellowgreen;
+    padding: 8px;
+    border-radius: 20px;
+    cursor: pointer;
+}
