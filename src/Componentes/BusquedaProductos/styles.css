@@ -1,0 +1,19 @@
+.container-busqueda-productos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    gap: 10px;
+}
+
+.container-busqueda-productos label{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.container-busqueda-productos input{
+    width: 600px;
+    padding: 18px 8px;
+    border-radius: 20px;
+    font-size: 20px;
+}
