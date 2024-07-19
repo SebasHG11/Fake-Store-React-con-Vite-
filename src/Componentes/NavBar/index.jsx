@@ -2,6 +2,7 @@ import '../NavBar/styles.css'
 import { useContext } from 'react'
 import { ShoppingCartIcon } from '@heroicons/react/16/solid'
 import { AppContext } from '../../Context'
+import { NavLink } from 'react-router-dom'
 
 export const NavBar = () =>{
     const context = useContext(AppContext)
@@ -10,15 +11,44 @@ export const NavBar = () =>{
         <div className='container'>
             <nav className='NavBar'>
                 <ul>
-                    <li><a href="">SkibiriShop</a></li>
-                    <li><a href="">Categorias</a></li>
-                    <li><a href="">Cuenta</a></li>
-                    <li><a href="">Cerrar Sesión</a></li>
+                    <li>
+                        <NavLink 
+                        to='/home'
+                        className={({isActive})=> 
+                            isActive ? 'active-style' : undefined}
+                        >
+                            SkibiriShop
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink 
+                        to='/categorias'
+                        className={({isActive})=>
+                            isActive ? 'active-style' : undefined}
+                        >
+                            Categorias
+                        </NavLink>   
+                    </li>
+                    <li>
+                        <NavLink>
+                            Ordenes
+                        </NavLink>
+                    </li>
+                    <li>
+                        <a href="">Cuenta</a>
+                    </li>
+                    <li>
+                        <a href="">Cerrar Sesión</a>
+                    </li>
                     <li className='container-car'>
-                        <a href="">
+                        <NavLink
+                        to='/carrito'
+                        className={({isActive}) =>
+                            isActive ? 'active-style' : undefined}
+                        >
                             <ShoppingCartIcon style={{ width: '24px', height: '24px', marginRight: '8px', color: 'white' }} />
                             <p className='car-numero'>{context.numCarrito}</p>
-                        </a>
+                        </NavLink>
                     </li>
                 </ul>
             </nav>

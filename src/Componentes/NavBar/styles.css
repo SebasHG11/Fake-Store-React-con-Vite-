@@ -5,7 +5,7 @@
 }
 
 .NavBar{
-    width: 500px;
+    width: 600px;
     background-color: yellowgreen;
     display: grid;
     place-items: center;
@@ -42,4 +42,10 @@
     background-color: red;
     padding: 3px 6px;
     border-radius: 50%;
+}
+
+.active-style{
+    font-weight: bold;
+    text-shadow: 2px white;
+    text-decoration: solid;
 }

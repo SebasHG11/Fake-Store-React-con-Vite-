@@ -1,0 +1,23 @@
+.categoria-container{
+    border-radius: 20px;
+    margin: 20px;
+    padding: 20px;
+    width: 200px;
+    height: auto;
+    display: grid;
+    place-items: center;
+    border: 2px solid rgb(232, 232, 232);
+}
+
+.categoria-container:hover{
+    box-shadow: 10px 10px 10px yellowgreen;
+}
+
+.categoria-container-img{
+    width: 150px;
+    height: 150px;
+}
+
+.categoria-nombre{
+    font-weight: bold;
+}

@@ -36,10 +36,35 @@
     background-color: yellowgreen;
     color: white;
     margin: 2px;
-    padding: 6px;
+    padding: 8px 30px;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .agregar-carro:hover{
     cursor: pointer;
+}
+
+.agregado-al-carro{
+    background-color: black;
+    color: white;
+    margin: 2px;
+    padding: 8px 30px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.agregado-al-carro:hover{
+    cursor: pointer;
+}
+
+.container-cantidad-producto{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 4px;
 }

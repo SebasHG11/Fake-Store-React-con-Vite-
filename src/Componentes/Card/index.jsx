@@ -1,14 +1,27 @@
 import '../Card/styles.css'
 import { useContext } from 'react'
 import { AppContext } from '../../Context'
+import { ShoppingCartIcon, ArchiveBoxXMarkIcon, PlusCircleIcon, MinusCircleIcon } from '@heroicons/react/16/solid'
 
 export const Card = ({ producto }) =>{
     const context = useContext(AppContext)
 
+    const productoEnCarrito = context.carrito.find(p => p.id === producto.id)
+    const existeEnCarrito = context.carrito.some(p => p.id === producto.id)
+
     const agregarProductoaCarro = (event, producto) =>{
         event.preventDefault()
-        context.setNumCarrito(context.numCarrito + 1)
-        context.setCarrito([producto, ...context.carrito])
+
+        const existeEnCarrito = context.carrito.some(p => p.id === producto.id)
+
+        if(existeEnCarrito){
+            const newCarrito = context.carrito.filter(p => p.id !== producto.id)
+            context.setCarrito(newCarrito)
+            context.setNumCarrito(context.numCarrito - productoEnCarrito.cantidad)
+        }else{
+            context.setNumCarrito(context.numCarrito + 1)
+            context.setCarrito([{...producto, cantidad: 1}, ...context.carrito])
+        }    
     }
 
     console.log(context.carrito)
@@ -19,7 +32,35 @@ export const Card = ({ producto }) =>{
             <img src={producto.imagen} alt={producto.nombre} className='product-container-img'/>
             <p className='product-container-name'>{producto.nombre}</p>
             <p className='product-container-precio'>${producto.precio}</p>
-            <span onClick={(event) =>agregarProductoaCarro(event, producto)} className='agregar-carro'>Agregar</span>
+            <span 
+                onClick={(event) =>agregarProductoaCarro(event, producto)} 
+                className={existeEnCarrito ? 'agregado-al-carro' : 'agregar-carro'}
+                >
+                    {existeEnCarrito
+                    ?
+                    <>
+                    Quitar
+                    <ArchiveBoxXMarkIcon style={{ width: '24px', height: '24px', marginRight: '8px', color: 'white' }} />
+                    </>
+                    :
+                    <>
+                    Agregar
+                    <ShoppingCartIcon style={{ width: '24px', height: '24px', marginRight: '8px', color: 'white' }} />
+                    </>
+                    }
+            </span>
+            {existeEnCarrito
+            &&
+            <div className='container-cantidad-producto'>
+                <span>
+                    <PlusCircleIcon style={{ width: '24px', height: '24px', marginRight: '8px', color: 'black' }} />
+                </span>
+                <p>{productoEnCarrito.cantidad}</p>
+                <span>
+                    <MinusCircleIcon style={{ width: '24px', height: '24px', marginRight: '8px', color: 'black' }} />
+                </span>
+            </div>
+            }
         </div>
     )
 }
