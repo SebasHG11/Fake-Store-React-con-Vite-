@@ -53,7 +53,7 @@ export const Card = ({ producto }) =>{
         }
     }
 
-    console.log(context.carrito)
+    // console.log(context.carrito)
 
     return(
         <div className='product-container'>

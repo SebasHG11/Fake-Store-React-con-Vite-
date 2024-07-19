@@ -3,9 +3,12 @@ import '../Carrito/style.css'
 import { AppContext } from '../../Context'
 import { Card } from '../../Componentes/Card'
 import { ContainerCards } from '../../Componentes/ContainerCards'
+import { useSumaTotal } from '../../Helpers/useSumaTotal'
 
 export const Carrito = () =>{
     const context = useContext(AppContext)
+
+    const {sumaTotal} = useSumaTotal(context.carrito)
 
     return(
         <>
@@ -18,8 +21,8 @@ export const Carrito = () =>{
 
         {context.carrito.length > 0 &&(
             <>
-            <div>
-                Total: 0$
+            <div className='cabecera-carrito'>
+                <p>Total: ${sumaTotal}</p>
                 <span>Comprar</span>
             </div>
             <ContainerCards>
