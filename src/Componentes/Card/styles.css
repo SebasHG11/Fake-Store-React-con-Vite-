@@ -65,6 +65,17 @@
 .container-cantidad-producto{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin: 4px;
+    gap: 8px;
+}
+
+.container-cantidad-producto span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.cantidad-text{
+    margin: 0;
+    font-size: 16px;
 }

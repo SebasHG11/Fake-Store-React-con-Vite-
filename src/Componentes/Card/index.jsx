@@ -24,6 +24,35 @@ export const Card = ({ producto }) =>{
         }    
     }
 
+    const aumentarCantidad = (event, producto) =>{
+        event.preventDefault()
+
+        const newCarrito = context.carrito.map(p=>(
+            p.id === producto.id ? {...producto, cantidad: p.cantidad + 1} : p
+        ))
+        context.setCarrito(newCarrito)
+        context.setNumCarrito(context.numCarrito + 1)
+    }
+
+    const disminuirCantidad = (event, producto) =>{
+        event.preventDefault()
+
+        if(productoEnCarrito){
+            if(productoEnCarrito.cantidad > 1){
+                const newCarrito = context.carrito.map(p=>(
+                    p.id === producto.id ? {...p, cantidad: p.cantidad - 1} : p
+                ))
+                context.setCarrito(newCarrito)
+                context.setNumCarrito(context.numCarrito - 1)
+            }
+            else if(productoEnCarrito.cantidad === 1){
+                const newCarrito = context.carrito.filter(p => p.id !== producto.id)
+                context.setCarrito(newCarrito)
+                context.setNumCarrito(context.numCarrito - 1)
+            }
+        }
+    }
+
     console.log(context.carrito)
 
     return(
@@ -52,11 +81,19 @@ export const Card = ({ producto }) =>{
             {existeEnCarrito
             &&
             <div className='container-cantidad-producto'>
-                <span>
+                <span
+                onClick={(event)=>{
+                    aumentarCantidad(event, producto)
+                }}
+                >
                     <PlusCircleIcon style={{ width: '24px', height: '24px', marginRight: '8px', color: 'black' }} />
                 </span>
-                <p>{productoEnCarrito.cantidad}</p>
-                <span>
+                <p className='cantidad-text'>{productoEnCarrito.cantidad}</p>
+                <span
+                onClick={(event)=>{
+                    disminuirCantidad(event, producto)
+                }}
+                >
                     <MinusCircleIcon style={{ width: '24px', height: '24px', marginRight: '8px', color: 'black' }} />
                 </span>
             </div>
