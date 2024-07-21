@@ -1,9 +1,22 @@
 import { useFetchData } from '../../Helpers/useFetchData'
 import { useState, useEffect } from 'react'
+import { useForm } from '../../Helpers/useForm'
 import '../FormProductosAdmin/styles.css'
 
 export const FormProductosAdmin = () =>{
     const[categorias, setCategorias] = useState([])
+
+    const initialValue = {
+        nombreProducto: '',
+        precioProducto: 0,
+        descripcionProducto: '',
+        imagenProducto: '',
+        categoriaProducto: 0
+    }
+
+    const {formState, onInputChange} = useForm(initialValue)
+
+    const {nombreProducto, precioProducto, descripcionProducto, imagenProducto, categoriaProducto} = formState
 
     const {data, error} = useFetchData('http://localhost:5164/api/Categoria')
 
@@ -15,22 +28,48 @@ export const FormProductosAdmin = () =>{
         console.log(error)
     }
 
+    const onSubmit = (event) =>{
+        event.preventDefault()
+        const envio ={
+            nombre: nombreProducto,
+            precio: parseFloat(precioProducto),
+            idCategoria: parseInt(categoriaProducto),
+            descripcion: descripcionProducto,
+            imagen: imagenProducto
+        }
+        console.log(envio)
+    }
+    
     return(
         <div>
           <h2>Formulario Productos</h2>
-          <form className="form-producto">
-            <label htmlFor="nombre-producto">Nombre del Producto</label>
+          <form
+          onSubmit={onSubmit} 
+          className="form-producto">
+
+            <label htmlFor="nombreProducto">Nombre del Producto</label>
             <input
+            onChange={onInputChange}
+            value={nombreProducto}
             className='form-producto-input'
-            type="text" name="nombre-producto" />
-            <label htmlFor="precio-producto">Precio</label>
+            type="text" 
+            name="nombreProducto" />
+
+            <label htmlFor="precioProducto">Precio</label>
             <input 
+            onChange={onInputChange}
+            value={precioProducto}
             className='form-producto-input'
-            type="number" name="precio-producto" />
-            <label htmlFor="categoria-del-producto">Categoria</label>
+            type="number" 
+            name="precioProducto" />
+
+            <label htmlFor="categoriaProducto">Categoria</label>
             <select
             className='form-producto-input' 
-            name="categoria-del-producto">
+            name="categoriaProducto"
+            onChange={onInputChange}
+            value={categoriaProducto}
+            >
                 {categorias &&
                     categorias.map(c =>(
                         <option 
@@ -41,17 +80,25 @@ export const FormProductosAdmin = () =>{
                         </option>
                 ))}
             </select>
-            <label htmlFor="descripcion-producto">Descripción</label>
+
+            <label htmlFor="descripcionProducto">Descripción</label>
             <textarea
+            onChange={onInputChange}
+            value={descripcionProducto}
             className='form-producto-input'
             cols="50"
             rows="5"
-            name="descripcion-producto"
+            name="descripcionProducto"
             ></textarea>
-            <label htmlFor="imagen-producto">Imagen</label>
+
+            <label htmlFor="imagenProducto">Imagen</label>
             <input 
+            onChange={onInputChange}
+            value={imagenProducto}
             className='form-producto-input'
-            type="text" name="imagen-producto" placeholder="https://..." />
+            type="text" 
+            name="imagenProducto" 
+            placeholder="https://..." />
             <input 
             className='form-producto-boton'
             type="submit" 
