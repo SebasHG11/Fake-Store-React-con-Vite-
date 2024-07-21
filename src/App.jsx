@@ -6,6 +6,7 @@ import { NotFound } from './Paginas/NotFound'
 import { Categorias } from './Paginas/Categorias'
 import { Carrito } from './Paginas/Carrito'
 import { PestañaAdmin } from './Componentes/PestañaAdmin'
+import { ProductosAdmin } from './Paginas/ProductosAdmin'
 
 const AppRoutes = () =>{
   let routes = useRoutes([
@@ -13,6 +14,7 @@ const AppRoutes = () =>{
     {path: '/home', element: <Home />},
     {path: '/categorias', element: <Categorias />},
     {path: '/carrito', element: <Carrito />},
+    {path: '/admin/productos', element: <ProductosAdmin />},
     {path: '/*', element: <NotFound />}
   ])
   return routes

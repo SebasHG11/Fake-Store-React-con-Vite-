@@ -1,0 +1,26 @@
+.form-producto{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    text-align: start;
+    font-weight: bold;
+}
+
+.form-producto-input{
+    border: 1px solid #929599;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.form-producto label{
+    margin-bottom: 4px;
+}
+
+.form-producto-boton{
+    margin-top: 15px;
+    background-color: yellowgreen;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    border: none;
+}

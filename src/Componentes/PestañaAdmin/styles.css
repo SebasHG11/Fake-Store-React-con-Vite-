@@ -11,9 +11,13 @@
 
 .pestaña-admin span{
     margin-top: 8px;
-    color: white;
     background-color: yellowgreen;
     padding: 8px;
     border-radius: 20px;
     cursor: pointer;
+}
+
+.pestaña-admin-text{
+    text-decoration: none;
+    color: white;
 }
