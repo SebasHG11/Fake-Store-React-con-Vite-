@@ -1,7 +1,9 @@
+import { Toaster, toast } from 'sonner'
 import { useFetchData } from '../../Helpers/useFetchData'
 import { useState, useEffect } from 'react'
 import { useForm } from '../../Helpers/useForm'
 import '../FormProductosAdmin/styles.css'
+import axios from 'axios'
 
 export const FormProductosAdmin = () =>{
     const[categorias, setCategorias] = useState([])
@@ -28,6 +30,17 @@ export const FormProductosAdmin = () =>{
         console.log(error)
     }
 
+    const postData = async(newData, url) =>{
+        try{
+            const res = await axios.post(url, newData)
+            console.log('Response:', res.data)
+            toast.success('¡Producto agregado correctamente!')
+        }catch(error){
+            console.log('Error:',error)
+            toast.error('¡Ha ocurrido un error!')
+        }
+    }
+
     const onSubmit = (event) =>{
         event.preventDefault()
         const envio ={
@@ -37,11 +50,12 @@ export const FormProductosAdmin = () =>{
             descripcion: descripcionProducto,
             imagen: imagenProducto
         }
-        console.log(envio)
+        postData(envio, 'http://localhost:5164/api/Producto')
     }
-    
+
     return(
         <div>
+        <Toaster position="bottom-left" richColors />
           <h2>Formulario Productos</h2>
           <form
           onSubmit={onSubmit} 

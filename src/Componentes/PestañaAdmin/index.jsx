@@ -14,6 +14,7 @@ export const PestañaAdmin = () =>{
             </span>
             <span>
                 <NavLink 
+                to='/admin/categorias'
                 className='pestaña-admin-text'
                 >
                     Categorias
