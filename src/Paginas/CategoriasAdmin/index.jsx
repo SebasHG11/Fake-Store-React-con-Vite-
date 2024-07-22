@@ -1,11 +1,16 @@
 import '../CategoriasAdmin/styles.css'
+import { ModalFormEditar } from '../../Componentes/ModalFormEditar'
 import { FormCategoriasAdmin } from "../../Componentes/FormCategoriasAdmin"
 import { ContainerCards } from '../../Componentes/ContainerCards'
 import { CardCategoriaAdmin } from '../../Componentes/CardCategoriaAdmin'
 import { useFetchData } from '../../Helpers/useFetchData'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { AppContext } from '../../Context'
+import { FormEditarCategoriasAdmin } from '../../Componentes/FormEditarCategoriasAdmin'
 
 export const CategoriasAdmin = () =>{
+    const context = useContext(AppContext)
+
     const [categorias, setCategorias] = useState([])
     const {data, error} = useFetchData('http://localhost:5164/api/Categoria')
 
@@ -30,6 +35,12 @@ export const CategoriasAdmin = () =>{
                     ))
                 }    
             </ContainerCards>
+            {
+            context.openModal &&
+                <ModalFormEditar>
+                    <FormEditarCategoriasAdmin />
+                </ModalFormEditar>
+            }
         </>
     )
 }

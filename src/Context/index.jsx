@@ -3,6 +3,7 @@ import { createContext, useState } from "react"
 export const AppContext = createContext()
 
 export const AppProvider = ({children}) =>{
+
     const [numCarrito, setNumCarrito] = useState(0)
 
     const [carrito, setCarrito] = useState([])
@@ -10,6 +11,8 @@ export const AppProvider = ({children}) =>{
     const [openModal, setOpenModal] = useState(false)
 
     const [productoSeleccionadoEdit, setProductoSeleccionadoEdit] = useState(null)
+    
+    const [categoriaSeleccionadaEdit, setCategoriaSeleccionadaEdit] = useState(null)
 
     return(
         <AppContext.Provider value={{
@@ -20,7 +23,9 @@ export const AppProvider = ({children}) =>{
             openModal,
             setOpenModal,
             productoSeleccionadoEdit,
-            setProductoSeleccionadoEdit
+            setProductoSeleccionadoEdit,
+            categoriaSeleccionadaEdit,
+            setCategoriaSeleccionadaEdit
         }}>
             {children}
         </AppContext.Provider>

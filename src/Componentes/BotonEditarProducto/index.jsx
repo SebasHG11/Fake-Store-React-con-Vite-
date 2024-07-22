@@ -8,7 +8,7 @@ export const BotonEditarProducto = ({item}) =>{
 
     const handleBotonEditar = (event) =>{
         event.preventDefault()
-        context.setOpenModal(!context.openModal)
+        context.setOpenModal(true)
         context.setProductoSeleccionadoEdit(item)
     }
 
