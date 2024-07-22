@@ -18,15 +18,20 @@ export const ProductosAdmin = () =>{
     }
 
     return(
-        <div className='container-productos-admin'>
-            <FormProductosAdmin />
+        <>
+            <div className='container-productos-admin'>
+                <FormProductosAdmin />
+            </div>
             <ContainerCards>
-                {productos &&
-                    productos.map(producto =>(
-                        <CardAdmin key={producto.id} item={producto} />
-                    ))
-                }    
-            </ContainerCards>
-        </div>
+                    {productos &&
+                        productos.map(producto =>(
+                            <CardAdmin 
+                            key={producto.id} 
+                            item={producto} 
+                            />
+                        ))
+                    }
+            </ContainerCards>    
+        </>
     )
 }

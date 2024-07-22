@@ -4,9 +4,12 @@ import { useState, useEffect } from 'react'
 import { useForm } from '../../Helpers/useForm'
 import '../FormProductosAdmin/styles.css'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 export const FormProductosAdmin = () =>{
     const[categorias, setCategorias] = useState([])
+
+    const navigate = useNavigate()
 
     const initialValue = {
         nombreProducto: '',
@@ -35,6 +38,7 @@ export const FormProductosAdmin = () =>{
             const res = await axios.post(url, newData)
             console.log('Response:', res.data)
             toast.success('¡Producto agregado correctamente!')
+            navigate('/home')
         }catch(error){
             console.log('Error:',error)
             toast.error('¡Ha ocurrido un error!')
