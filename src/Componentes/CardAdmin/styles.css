@@ -1,0 +1,24 @@
+.container-card-admin{
+    border-radius: 20px;
+    margin: 20px;
+    padding: 20px;
+    width: 200px;
+    height: auto;
+    display: grid;
+    place-items: center;
+    border: 2px solid rgb(232, 232, 232);
+}
+
+.container-card-admin:hover{
+    box-shadow: 10px 10px 10px yellowgreen;
+}
+
+.container-card-admin-img{
+    width: 150px;
+    height: 150px;
+}
+
+.container-card-admin-name{
+    margin: 4px;
+    font-weight: bold;
+}

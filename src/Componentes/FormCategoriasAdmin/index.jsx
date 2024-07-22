@@ -10,7 +10,7 @@ export const FormCategoriasAdmin = () =>{
         imagenCategoria: ''
     }
 
-    const {formState, onInputChange} = useForm(initialState)
+    const {formState, setFormState, onInputChange} = useForm(initialState)
 
     const {nombreCategoria, imagenCategoria} = formState
 
@@ -32,12 +32,13 @@ export const FormCategoriasAdmin = () =>{
             imagen: imagenCategoria
         }
         postData(envio, 'http://localhost:5164/api/Categoria')
+        setFormState(initialState)
     }
 
     return(
         <div>
             <Toaster position="bottom-left" richColors />
-            <h2>Formulario Productos</h2>
+            <h2>Formulario Categorias</h2>
           <form
           onSubmit={onSubmit} 
           className="form-categoria">

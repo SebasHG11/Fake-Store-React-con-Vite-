@@ -1,4 +1,4 @@
-import { ContainerCardsCategorias } from '../../Componentes/ContainerCardsCategorias'
+import { ContainerCards } from '../../Componentes/ContainerCards'
 import { CardCategoria } from '../../Componentes/CardCategoria'
 import { useEffect, useState } from 'react'
 import { useFetchData } from '../../Helpers/useFetchData'
@@ -17,12 +17,12 @@ export const Categorias = () =>{
     }
 
     return(
-        <ContainerCardsCategorias>
+        <ContainerCards>
             {categorias &&
             categorias.map(cat =>(
                <CardCategoria key={cat.id} categoria={cat} /> 
             ))
             }     
-        </ContainerCardsCategorias>
+        </ContainerCards>
     )
 }

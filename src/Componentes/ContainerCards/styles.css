@@ -1,4 +1,5 @@
-.products-container{
+.cards-container{
+    margin-top: 10px;
     display: grid;
     grid-template-columns: repeat(auto-fill, 240px);
     gap: 26px;

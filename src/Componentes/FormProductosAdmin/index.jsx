@@ -13,10 +13,10 @@ export const FormProductosAdmin = () =>{
         precioProducto: 0,
         descripcionProducto: '',
         imagenProducto: '',
-        categoriaProducto: 0
+        categoriaProducto: 1
     }
 
-    const {formState, onInputChange} = useForm(initialValue)
+    const {formState, setFormState, onInputChange} = useForm(initialValue)
 
     const {nombreProducto, precioProducto, descripcionProducto, imagenProducto, categoriaProducto} = formState
 
@@ -51,6 +51,7 @@ export const FormProductosAdmin = () =>{
             imagen: imagenProducto
         }
         postData(envio, 'http://localhost:5164/api/Producto')
+        setFormState(initialValue)
     }
 
     return(

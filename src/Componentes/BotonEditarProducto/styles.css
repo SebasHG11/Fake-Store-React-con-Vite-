@@ -1,0 +1,11 @@
+.boton-editar-producto{
+    background-color: rgb(216, 216, 28);
+    padding: 5px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin: 4px;
+    cursor: pointer;
+}
