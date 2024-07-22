@@ -1,4 +1,4 @@
-import { Toaster, toast } from 'sonner'
+import { toast } from 'sonner'
 import { useFetchData } from '../../Helpers/useFetchData'
 import { useState, useEffect } from 'react'
 import { useForm } from '../../Helpers/useForm'
@@ -37,7 +37,7 @@ export const FormProductosAdmin = () =>{
         try{
             const res = await axios.post(url, newData)
             console.log('Response:', res.data)
-            toast.success('¡Producto agregado correctamente!')
+            toast.success('¡Producto agregado correctamente!', { duration: 3000 })
             navigate('/home')
         }catch(error){
             console.log('Error:',error)
@@ -60,7 +60,6 @@ export const FormProductosAdmin = () =>{
 
     return(
         <div>
-        <Toaster position="bottom-left" richColors />
           <h2>Formulario Productos</h2>
           <form
           onSubmit={onSubmit} 

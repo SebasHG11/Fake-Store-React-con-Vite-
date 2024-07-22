@@ -7,12 +7,20 @@ export const AppProvider = ({children}) =>{
 
     const [carrito, setCarrito] = useState([])
 
+    const [openModal, setOpenModal] = useState(false)
+
+    const [productoSeleccionadoEdit, setProductoSeleccionadoEdit] = useState(null)
+
     return(
         <AppContext.Provider value={{
             numCarrito,
             setNumCarrito,
             carrito,
-            setCarrito
+            setCarrito,
+            openModal,
+            setOpenModal,
+            productoSeleccionadoEdit,
+            setProductoSeleccionadoEdit
         }}>
             {children}
         </AppContext.Provider>

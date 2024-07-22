@@ -1,11 +1,16 @@
 import '../ProductosAdmin/styles.css'
 import { FormProductosAdmin } from '../../Componentes/FormProductosAdmin'
 import { ContainerCards } from '../../Componentes/ContainerCards'
-import { CardAdmin } from '../../Componentes/CardAdmin'
+import { CardProductoAdmin } from '../../Componentes/CardProductoAdmin'
 import { useFetchData } from '../../Helpers/useFetchData'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { ModalFormEditar } from '../../Componentes/ModalFormEditar'
+import { AppContext } from '../../Context'
+import { FormEditarProductosAdmin } from '../../Componentes/FormEditarProductosAdmin'
 
 export const ProductosAdmin = () =>{
+    const context = useContext(AppContext)
+
     const[productos, setProductos] = useState([])
     const {data, error} = useFetchData('http://localhost:5164/api/Producto')
 
@@ -25,13 +30,19 @@ export const ProductosAdmin = () =>{
             <ContainerCards>
                     {productos &&
                         productos.map(producto =>(
-                            <CardAdmin 
+                            <CardProductoAdmin 
                             key={producto.id} 
-                            item={producto} 
+                            item={producto}
                             />
                         ))
                     }
-            </ContainerCards>    
+            </ContainerCards>
+            {context.openModal
+            &&
+            <ModalFormEditar>
+                <FormEditarProductosAdmin />
+            </ModalFormEditar>
+            }    
         </>
     )
 }

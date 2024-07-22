@@ -1,4 +1,4 @@
-import { Toaster, toast } from 'sonner'
+import { toast } from 'sonner'
 import '../Carrito/style.css'
 import { useContext } from 'react'
 import { AppContext } from '../../Context'
@@ -15,12 +15,11 @@ export const Carrito = () =>{
         event.preventDefault()
         context.setCarrito([])
         context.setNumCarrito(0)
-        toast.success('¡Compra realizada con exito!')
+        toast.success('¡Compra realizada con exito!', { duration: 3000 })
     }
 
     return(
         <>
-        <Toaster richColors />
         {(context.carrito.length === 0)
         &&
         <div className="mensaje-carrito">

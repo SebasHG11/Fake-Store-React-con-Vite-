@@ -1,0 +1,11 @@
+.btn-cancelar-edit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}

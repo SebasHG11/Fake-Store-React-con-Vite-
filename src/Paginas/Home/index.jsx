@@ -3,7 +3,6 @@ import { ContainerCards } from '../../Componentes/ContainerCards'
 import { Card } from '../../Componentes/Card'
 import { useFetchData } from '../../Helpers/useFetchData'
 import { BusquedaProductos } from '../../Componentes/BusquedaProductos'
-import { Toaster } from 'sonner'
 
 export const Home = () =>{
   const[items, setItems] = useState([])
@@ -24,7 +23,6 @@ export const Home = () =>{
 
   return(
     <>
-    <Toaster richColors />
     <BusquedaProductos 
     busqueda={busqueda}
     setBusqueda={setBusqueda}

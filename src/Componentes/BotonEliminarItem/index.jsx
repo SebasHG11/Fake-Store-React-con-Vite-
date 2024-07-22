@@ -1,10 +1,10 @@
 import { TrashIcon } from '@heroicons/react/16/solid'
-import '../BotonEliminarProducto/styles.css'
+import './styles.css'
 import { useNavigate } from 'react-router-dom'
 import axios from "axios"
 import { toast } from 'sonner'
 
-export const BotonEliminarProducto = ({item, urlItems}) =>{
+export const BotonEliminarItem = ({item, urlItems}) =>{
 
     const navigate = useNavigate()
 

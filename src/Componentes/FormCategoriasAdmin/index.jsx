@@ -1,9 +1,12 @@
 import '../FormCategoriasAdmin/styles.css'
 import { useForm } from '../../Helpers/useForm'
 import axios from 'axios'
-import { Toaster, toast } from 'sonner'
+import { toast } from 'sonner'
+import { useNavigate } from 'react-router-dom'
 
 export const FormCategoriasAdmin = () =>{
+
+    const navigate = useNavigate()
 
     const initialState = {
         nombreCategoria: '',
@@ -17,8 +20,8 @@ export const FormCategoriasAdmin = () =>{
     const postData = async(newData, url) =>{
         try{
             const res = await axios.post(url, newData)
-            console.log('Response:', res.data)
-            toast.success('¡Categoria agregada correctamente!')
+            toast.success('¡Categoria agregada correctamente!', { duration: 3000 })
+            navigate('/home')
         }catch(error){
             console.log('Error:',error)
             toast.error('¡Ha ocurrido un error!')
@@ -37,7 +40,6 @@ export const FormCategoriasAdmin = () =>{
 
     return(
         <div>
-            <Toaster position="bottom-left" richColors />
             <h2>Formulario Categorias</h2>
           <form
           onSubmit={onSubmit} 
