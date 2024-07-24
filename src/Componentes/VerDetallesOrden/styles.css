@@ -1,0 +1,40 @@
+.container-detalle-orden{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid rgb(107, 102, 102);
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+.boton-cerrar-detalle-orden{
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+.container-cabecera{
+    display: grid;
+    place-items: center;
+}
+
+.container-cabecera-precio{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.container-cabecera-valor{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 4px;
+}

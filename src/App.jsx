@@ -8,6 +8,7 @@ import { Carrito } from './Paginas/Carrito'
 import { PestañaAdmin } from './Componentes/PestañaAdmin'
 import { ProductosAdmin } from './Paginas/ProductosAdmin'
 import { CategoriasAdmin } from './Paginas/CategoriasAdmin'
+import { Ordenes } from './Paginas/Ordenes'
 
 const AppRoutes = () =>{
   let routes = useRoutes([
@@ -17,6 +18,7 @@ const AppRoutes = () =>{
     {path: '/carrito', element: <Carrito />},
     {path: '/admin/productos', element: <ProductosAdmin />},
     {path: '/admin/categorias', element: <CategoriasAdmin />},
+    {path: '/ordenes', element: <Ordenes />},
     {path: '/*', element: <NotFound />}
   ])
   return routes

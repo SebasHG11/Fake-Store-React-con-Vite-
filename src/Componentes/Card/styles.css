@@ -32,6 +32,12 @@
     margin: 2px;
 }
 
+.product-container-cantidad{
+    font-size: 25px;
+    color: rgb(118, 155, 45);
+    font-weight: bold;
+}
+
 .agregar-carro{
     background-color: yellowgreen;
     color: white;
@@ -78,4 +84,26 @@
 .cantidad-text{
     margin: 0;
     font-size: 16px;
+}
+
+.product-container-img-orden{
+    width: 100px;
+    height: 100px;
+}
+
+.product-container-orden{
+    border-radius: 20px;
+    margin: 10px;
+    padding: 5px;
+    width: 300px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    border: 2px solid rgb(232, 232, 232);
+}
+
+.product-container-orden:hover{
+    box-shadow: 10px 10px 10px yellowgreen;
 }

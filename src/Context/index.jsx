@@ -14,6 +14,10 @@ export const AppProvider = ({children}) =>{
     
     const [categoriaSeleccionadaEdit, setCategoriaSeleccionadaEdit] = useState(null)
 
+    const [asideDetalleOrden, setAsideDetalleOrden] = useState(false)
+
+    const [ordenDetalleSeleccionada, setOrdenDetalleSeleccionada] = useState([])
+
     return(
         <AppContext.Provider value={{
             numCarrito,
@@ -25,7 +29,12 @@ export const AppProvider = ({children}) =>{
             productoSeleccionadoEdit,
             setProductoSeleccionadoEdit,
             categoriaSeleccionadaEdit,
-            setCategoriaSeleccionadaEdit
+            setCategoriaSeleccionadaEdit,
+            asideDetalleOrden,
+            setAsideDetalleOrden,
+            ordenDetalleSeleccionada,
+            setOrdenDetalleSeleccionada
+
         }}>
             {children}
         </AppContext.Provider>

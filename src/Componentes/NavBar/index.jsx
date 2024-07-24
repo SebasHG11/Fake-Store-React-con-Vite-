@@ -33,7 +33,11 @@ export const NavBar = () =>{
                             </NavLink>   
                         </li>
                         <li>
-                            <NavLink>
+                            <NavLink
+                            to='/ordenes'
+                            className={({isActive})=>
+                                isActive ? 'active-style' : undefined}
+                            >
                                 Ordenes
                             </NavLink>
                         </li>

@@ -8,10 +8,11 @@ export const BotonEliminarItem = ({item, urlItems}) =>{
 
     const navigate = useNavigate()
 
-    const handleEliminarProducto = async(url, id) =>{
+    const handleEliminarProducto = async(event, url, id) =>{
+        event.preventDefault()
         try{
             const response = await axios.delete(`${url}/${id}`)
-            toast.info(`${item.nombre} se elimino correctamente`)
+            toast.info(`${item.nombre} se elimino correctamente`, {duration: 3000})
             navigate('/home')
         }catch(error){
             console.log(error)
@@ -22,8 +23,8 @@ export const BotonEliminarItem = ({item, urlItems}) =>{
     return(
         <>
             <span
-            onClick={()=>{
-                handleEliminarProducto(urlItems,item.id)
+            onClick={(event)=>{
+                handleEliminarProducto(event, urlItems,item.id)
             }} 
             className='boton-eliminar-producto'>
                 Eliminar
