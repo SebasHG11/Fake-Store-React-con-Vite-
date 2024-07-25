@@ -18,6 +18,16 @@ export const AppProvider = ({children}) =>{
 
     const [ordenDetalleSeleccionada, setOrdenDetalleSeleccionada] = useState([])
 
+    // Login
+
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    const [token, setToken] = useState(localStorage.getItem('TOKEN-SHOP') || '')
+
+    const [isAdmin, setIsAdmin] = useState(false)
+
+    const [userActual, setUserActual] = useState({})
+
     return(
         <AppContext.Provider value={{
             numCarrito,
@@ -33,8 +43,15 @@ export const AppProvider = ({children}) =>{
             asideDetalleOrden,
             setAsideDetalleOrden,
             ordenDetalleSeleccionada,
-            setOrdenDetalleSeleccionada
-
+            setOrdenDetalleSeleccionada,
+            isAuthenticated,
+            setIsAuthenticated,
+            token,
+            setToken,
+            isAdmin,
+            setIsAdmin,
+            userActual,
+            setUserActual,
         }}>
             {children}
         </AppContext.Provider>

@@ -4,6 +4,7 @@
     right: 0;
     padding: 30px;
     border: 2px yellowgreen solid;
+    background-color: white;
     border-radius: 20px;
     display: grid;
     place-items: center;

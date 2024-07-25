@@ -49,3 +49,10 @@
     text-shadow: 2px white;
     text-decoration: solid;
 }
+
+.foto-perfil{
+    width: 30px;
+    height: auto;
+    border-radius: 100%;
+    object-fit: cover;
+}

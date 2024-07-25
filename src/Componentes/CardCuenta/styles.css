@@ -1,0 +1,28 @@
+.container-card-cuenta{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid rgb(124, 124, 124);
+    margin: 30px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.container-card-cuenta h2{
+    color: darkgreen;
+}
+
+.container-card-cuenta img{
+    width: 380px;
+}
+
+.icono-edit-foto{
+    display: grid;
+    place-items: center;
+    background-color: rgb(216, 216, 28);
+    padding: 5px;
+    border-radius: 50px;
+    cursor: pointer;
+    object-fit: cover;
+}

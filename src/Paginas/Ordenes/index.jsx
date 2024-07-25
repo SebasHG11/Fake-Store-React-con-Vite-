@@ -1,17 +1,20 @@
 import { ContainerCards } from "../../Componentes/ContainerCards"
 import { CardOrden } from "../../Componentes/CardOrden"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useFetchData } from "../../Helpers/useFetchData"
 import { VerDetallesOrden } from "../../Componentes/VerDetallesOrden"
+import { AppContext } from "../../Context"
 
 export const Ordenes = () =>{
+    const { userActual } = useContext(AppContext)
+
     const[ordenes, setOrdenes] = useState([])
 
     const{data, error} = useFetchData('http://localhost:5164/api/Orden')
 
     if(!error){
         useEffect(()=>{
-            const ordenesUser = data.filter(d => d.usuarioId === 2) //Cambiar el 2 por el id del usuario
+            const ordenesUser = data.filter(d => d.usuarioId === userActual.id)
             setOrdenes(ordenesUser)
         },[data])
     }else{

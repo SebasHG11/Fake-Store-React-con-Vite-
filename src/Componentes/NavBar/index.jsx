@@ -2,11 +2,19 @@ import '../NavBar/styles.css'
 import { useContext } from 'react'
 import { ShoppingCartIcon } from '@heroicons/react/16/solid'
 import { AppContext } from '../../Context'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { Toaster } from 'sonner'
 
 export const NavBar = () =>{
     const context = useContext(AppContext)
+    const navigate = useNavigate()
+
+    const LogOut = (event) =>{
+        event.preventDefault()
+        localStorage.removeItem('TOKEN-SHOP')
+        context.setIsAuthenticated(false)
+        navigate('/login')
+    }
 
     return(
         <>
@@ -14,6 +22,13 @@ export const NavBar = () =>{
             <div className='container'>
                 <nav className='NavBar'>
                     <ul>
+                        <li>
+                            <img 
+                            src={context.userActual.foto || 'https://img.freepik.com/vector-gratis/circulo-azul-usuario-blanco_78370-4707.jpg?size=338&ext=jpg'} 
+                            alt={context.userActual.nombre}
+                            className='foto-perfil'
+                            />
+                        </li>
                         <li>
                             <NavLink 
                             to='/home'
@@ -42,12 +57,18 @@ export const NavBar = () =>{
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink>
+                            <NavLink
+                            to='/usuario/cuenta'
+                            className={({isActive})=>
+                                isActive ? 'active-style' : undefined}>
                                 Cuenta
                             </NavLink> 
                         </li>
                         <li>
-                            <NavLink>
+                            <NavLink
+                            onClick={(event)=>{
+                                LogOut(event)
+                            }}>
                                 Cerrar Sesión
                             </NavLink> 
                         </li>

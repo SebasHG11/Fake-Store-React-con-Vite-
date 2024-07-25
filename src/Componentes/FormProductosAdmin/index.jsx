@@ -36,7 +36,7 @@ export const FormProductosAdmin = () =>{
     const postData = async(newData, url) =>{
         try{
             const res = await axios.post(url, newData)
-            console.log('Response:', res.data)
+            console.log('Response:', res.data.token)
             toast.success('¡Producto agregado correctamente!', { duration: 3000 })
             navigate('/home')
         }catch(error){

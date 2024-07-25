@@ -3,8 +3,10 @@ import { ContainerCards } from '../../Componentes/ContainerCards'
 import { Card } from '../../Componentes/Card'
 import { useFetchData } from '../../Helpers/useFetchData'
 import { BusquedaProductos } from '../../Componentes/BusquedaProductos'
+import { TomarUsuarioIngresado } from '../../Componentes/TomarUsuarioIngresado'
 
 export const Home = () =>{
+
   const[items, setItems] = useState([])
   const[busqueda, setBusqueda] = useState('')
 
@@ -23,6 +25,7 @@ export const Home = () =>{
 
   return(
     <>
+    <TomarUsuarioIngresado />
     <BusquedaProductos 
     busqueda={busqueda}
     setBusqueda={setBusqueda}
