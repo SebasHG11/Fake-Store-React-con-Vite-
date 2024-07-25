@@ -3,8 +3,11 @@ import { useForm } from '../../Helpers/useForm'
 import axios from 'axios'
 import { toast } from 'sonner'
 import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { AppContext } from '../../Context'
 
 export const FormCategoriasAdmin = () =>{
+    const context = useContext(AppContext)
 
     const navigate = useNavigate()
 
@@ -17,9 +20,13 @@ export const FormCategoriasAdmin = () =>{
 
     const {nombreCategoria, imagenCategoria} = formState
 
-    const postData = async(newData, url) =>{
+    const postData = async(newData, url, token) =>{
         try{
-            const res = await axios.post(url, newData)
+            const res = await axios.post(url, newData,{
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
             toast.success('¡Categoria agregada correctamente!', { duration: 3000 })
             navigate('/home')
         }catch(error){
@@ -34,7 +41,7 @@ export const FormCategoriasAdmin = () =>{
             nombre: nombreCategoria,
             imagen: imagenCategoria
         }
-        postData(envio, 'http://localhost:5164/api/Categoria')
+        postData(envio, 'http://localhost:5164/api/Categoria', context.token)
         setFormState(initialState)
     }
 

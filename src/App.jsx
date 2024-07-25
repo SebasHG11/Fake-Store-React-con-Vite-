@@ -15,9 +15,18 @@ import { useContext } from 'react'
 import { Cuenta } from './Paginas/Cuenta'
 
 const AppRoutes = () =>{
+  const context = useContext(AppContent)
   let routes = useRoutes([
-    {path: '/', element: <PaginaLogin />},
-    {path: '/login', element: <PaginaLogin />},
+    {
+      path: '/',
+      element: 
+        <PaginaLogin />  
+    },
+    {
+      path: '/login',
+      element:
+        <PaginaLogin />  
+    },
     {
       path: '/home',
       element: (

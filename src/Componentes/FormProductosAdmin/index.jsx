@@ -1,13 +1,16 @@
 import { toast } from 'sonner'
 import { useFetchData } from '../../Helpers/useFetchData'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useForm } from '../../Helpers/useForm'
 import '../FormProductosAdmin/styles.css'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { AppContext } from '../../Context'
 
 export const FormProductosAdmin = () =>{
     const[categorias, setCategorias] = useState([])
+
+    const context = useContext(AppContext)
 
     const navigate = useNavigate()
 
@@ -33,10 +36,13 @@ export const FormProductosAdmin = () =>{
         console.log(error)
     }
 
-    const postData = async(newData, url) =>{
+    const postData = async(newData, url, token) =>{
         try{
-            const res = await axios.post(url, newData)
-            console.log('Response:', res.data.token)
+            const res = await axios.post(url, newData,{
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
             toast.success('¡Producto agregado correctamente!', { duration: 3000 })
             navigate('/home')
         }catch(error){
@@ -54,7 +60,7 @@ export const FormProductosAdmin = () =>{
             descripcion: descripcionProducto,
             imagen: imagenProducto
         }
-        postData(envio, 'http://localhost:5164/api/Producto')
+        postData(envio, 'http://localhost:5164/api/Producto', context.token)
         setFormState(initialValue)
     }
 

@@ -12,7 +12,7 @@ export const Carrito = () =>{
 
     const {sumaTotal} = useSumaTotal(context.carrito)
 
-    const postHacerOrden = async(url) =>{
+    const postHacerOrden = async(url, token) =>{
         const orden = { productos:  context.carrito.map(c =>({
                     productoId: parseInt(c.id),
                     cantidad: parseInt(c.cantidad)
@@ -21,7 +21,11 @@ export const Carrito = () =>{
         }
         if(context.carrito.length > 0){
             try{
-                const res = await axios.post(url, orden)
+                const res = await axios.post(url, orden,{
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                })
                 context.setCarrito([])
                 context.setNumCarrito(0)
                 toast.success('¡Orden realizada con exito!', { duration: 3000 })
@@ -36,7 +40,7 @@ export const Carrito = () =>{
 
     const handleComprarCarrito = (event) =>{
         event.preventDefault()
-        postHacerOrden('http://localhost:5164/api/Orden')
+        postHacerOrden('http://localhost:5164/api/Orden', context.token)
     }
 
     return(

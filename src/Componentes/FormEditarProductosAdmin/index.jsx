@@ -41,9 +41,13 @@ export const FormEditarProductosAdmin = () =>{
         console.log(error)
     }
 
-    const putProducto = async(newData, id, url) =>{
+    const putProducto = async(newData, id, url, token) =>{
         try{
-            const res = await axios.put(`${url}/${id}`, newData)
+            const res = await axios.put(`${url}/${id}`, newData,{
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
             toast.success('¡Producto editado correctamente!', { duration: 3000 })
             navigate('/home')
         }catch(error){
@@ -61,7 +65,7 @@ export const FormEditarProductosAdmin = () =>{
             descripcion: descripcionProducto,
             imagen: imagenProducto
         }
-        putProducto(envio, context.productoSeleccionadoEdit.id, 'http://localhost:5164/api/Producto')
+        putProducto(envio, context.productoSeleccionadoEdit.id, 'http://localhost:5164/api/Producto', context.token)
         context.setOpenModal(false)
         setFormState(initialValue)
     }

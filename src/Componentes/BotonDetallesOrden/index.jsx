@@ -9,7 +9,6 @@ export const BotonDetallesOrden = ({item}) =>{
     const handleVerDetallesOrden = (event, orden) =>{
         event.preventDefault()
         context.setOrdenDetalleSeleccionada(orden)
-        console.log(orden)
         context.setAsideDetalleOrden(true)
     }
 

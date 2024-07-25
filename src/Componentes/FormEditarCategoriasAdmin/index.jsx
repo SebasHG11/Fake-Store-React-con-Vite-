@@ -25,9 +25,13 @@ export const FormEditarCategoriasAdmin = () =>{
 
     const {nombreCategoria, imagenCategoria} = formState
 
-    const putCategoria = async(newData, id, url) =>{
+    const putCategoria = async(newData, id, url, token) =>{
         try{
-            const res = await axios.put(`${url}/${id}`, newData)
+            const res = await axios.put(`${url}/${id}`, newData,{
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
             toast.success('¡Categoria editada correctamente!', { duration: 3000 })
             navigate('/home')
         }catch(error){
@@ -42,7 +46,7 @@ export const FormEditarCategoriasAdmin = () =>{
             nombre: nombreCategoria,
             imagen: imagenCategoria
         }
-        putCategoria(envio, context.categoriaSeleccionadaEdit.id, 'http://localhost:5164/api/Categoria')
+        putCategoria(envio, context.categoriaSeleccionadaEdit.id, 'http://localhost:5164/api/Categoria', context.token)
         context.setOpenModal(false)
         setFormState(initialState)
     }

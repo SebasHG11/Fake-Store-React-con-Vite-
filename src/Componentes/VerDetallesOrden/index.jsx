@@ -27,7 +27,11 @@ export const VerDetallesOrden = () =>{
     useEffect(() => {
         const verProductosPorIds = async (ordenProductos) => {
             try {
-                const requests = ordenProductos.map(op => axios.get(`http://localhost:5164/api/Producto/${op.productoId}`))
+                const requests = ordenProductos.map(op => axios.get(`http://localhost:5164/api/Producto/${op.productoId}`,{
+                    headers: {
+                        Authorization: `Bearer ${context.token}`
+                    }
+                }))
                 const responses = await Promise.all(requests)
                 const productosConCantidad = responses.map((response, index) => ({
                     ...response.data,
