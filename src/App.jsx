@@ -13,6 +13,7 @@ import { PaginaLogin } from './Paginas/PaginaLogin'
 import { RutaProtegida } from './Componentes/RutaProtegida'
 import { useContext } from 'react'
 import { Cuenta } from './Paginas/Cuenta'
+import { PaginaRegistro } from './Paginas/PaginaRegistro'
 
 const AppRoutes = () =>{
   const context = useContext(AppContent)
@@ -26,6 +27,11 @@ const AppRoutes = () =>{
       path: '/login',
       element:
         <PaginaLogin />  
+    },
+    {
+      path: '/registro',
+      element:
+        <PaginaRegistro />
     },
     {
       path: '/home',

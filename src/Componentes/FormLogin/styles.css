@@ -60,9 +60,37 @@
     padding-left: 50px;
     padding-right: 50px;
     border: 2px solid yellowgreen;
-    border-radius: 30px;
+    border-radius: 30px;    
 }
 
 .registrar-btn:hover {
     background-color: rgb(224, 220, 220);
+}
+
+.header-registro{
+    color: yellowgreen;
+}
+
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-password-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.toggle-password-btn:focus {
+    outline: none;
 }

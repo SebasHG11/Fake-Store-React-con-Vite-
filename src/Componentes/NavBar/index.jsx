@@ -9,11 +9,15 @@ export const NavBar = () =>{
     const context = useContext(AppContext)
     const navigate = useNavigate()
 
-    const LogOut = (event) =>{
-        event.preventDefault()
+    const LogOut = () =>{
         localStorage.removeItem('TOKEN-SHOP')
         context.setIsAuthenticated(false)
+        context.setAsideDetalleOrden(false)
         navigate('/login')
+    }
+
+    const handleImageError = (event) => {
+        event.target.src = 'https://img.freepik.com/vector-gratis/circulo-azul-usuario-blanco_78370-4707.jpg?size=338&ext=jpg';
     }
 
     return(
@@ -24,8 +28,9 @@ export const NavBar = () =>{
                     <ul>
                         <li>
                             <img 
-                            src={context.userActual.foto || 'https://img.freepik.com/vector-gratis/circulo-azul-usuario-blanco_78370-4707.jpg?size=338&ext=jpg'} 
+                            src={context.userActual.foto} 
                             alt={context.userActual.nombre}
+                            onError={handleImageError}
                             className='foto-perfil'
                             />
                         </li>

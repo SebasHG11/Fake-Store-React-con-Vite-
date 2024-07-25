@@ -5,7 +5,7 @@ import { Toaster } from 'sonner'
 export const PaginaLogin = () =>{
     return(
         <div className="container-pagina-login">
-            <Toaster />
+            <Toaster richColors />
             <FormLogin />
         </div>
     )

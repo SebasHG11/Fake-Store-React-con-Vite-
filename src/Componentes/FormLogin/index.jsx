@@ -5,11 +5,23 @@ import '../FormLogin/styles.css'
 import { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../../Context'
 import { useNavigate } from 'react-router-dom'
-import { useFetchData } from '../../Helpers/useFetchData'
+import { NavLink } from 'react-router-dom'
+import { EyeIcon, EyeSlashIcon } from '@heroicons/react/16/solid'
 
 export const FormLogin = () =>{
     const context = useContext(AppContext)
     const navigate = useNavigate()
+    const [showPassword, setShowPassword] = useState(false)
+
+    const handleIrRegistro = (event) =>{
+        event.preventDefault()
+        navigate('/registro')
+    }
+
+    const handleShowPassword = (event) =>{
+        event.preventDefault()
+        setShowPassword(!showPassword)
+    }
 
     const initialState ={
         name: '',
@@ -33,8 +45,7 @@ export const FormLogin = () =>{
             toast.success('¡Iniciaste sesión!', { duration: 3000 })
 
         }catch(error){
-            console.log('Error:',error)
-            toast.error('¡Ha ocurrido un error!')
+            toast.error('¡El correo o la contraseña es incorrecto!', { duration: 3000 })
         }
     }
 
@@ -63,16 +74,35 @@ export const FormLogin = () =>{
                     onChange={onInputChange} 
                     />
                 <label htmlFor="contraseña">Contraseña</label>
+
+                <div className='password-container'>
                 <input 
                     className='form-login-input' 
-                    type="password" 
+                    type={showPassword ? "text" : "password" }
                     name="contraseña"
                     value={contraseña}
                     onChange={onInputChange} 
-                    />
+                />
+                    <button
+                        className='toggle-password-btn' 
+                        onClick={handleShowPassword}
+                    >
+                        {showPassword ? 
+                            <EyeSlashIcon style={{ width: '24px', height: '24px', color: 'yellowgreen' }} /> : 
+                            <EyeIcon style={{ width: '24px', height: '24px', color: 'yellowgreen' }} />
+                        }
+                    </button>
+                </div>
+    
                 <input className='form-login-btn' type="submit" value='Login' />
             </form>
-            <span className='registrar-btn'>Crear Cuenta</span>
+                <span 
+                className='registrar-btn'
+                onClick={handleIrRegistro}
+                >
+                    Crear Cuenta 
+                </span>
+            
         </div>
     )       
 }
