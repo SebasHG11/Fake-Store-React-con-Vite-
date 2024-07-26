@@ -40,7 +40,7 @@ export const NavBar = () =>{
                             className={({isActive})=> 
                                 isActive ? 'active-style' : undefined}
                             >
-                                SkibiriShop
+                                MegaShop
                             </NavLink>
                         </li>
                         <li>
