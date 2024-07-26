@@ -1,6 +1,8 @@
+import '../Categorias/styles.css'
+import { useEffect, useState } from 'react'
 import { ContainerCards } from '../../Componentes/ContainerCards'
 import { CardCategoria } from '../../Componentes/CardCategoria'
-import { useEffect, useState } from 'react'
+import { BotonQuitarFiltroCategoria } from '../../Componentes/BotonQuitarFiltroCategoria'
 import { useFetchData } from '../../Helpers/useFetchData'
 
 export const Categorias = () =>{
@@ -17,12 +19,17 @@ export const Categorias = () =>{
     }
 
     return(
-        <ContainerCards>
-            {categorias &&
-            categorias.map(cat =>(
-               <CardCategoria key={cat.id} categoria={cat} /> 
-            ))
-            }     
-        </ContainerCards>
+        <>
+            <div className='container-boton'>
+                <BotonQuitarFiltroCategoria />
+            </div>  
+            <ContainerCards>
+                {categorias &&
+                categorias.map(cat =>(
+                <CardCategoria key={cat.id} categoria={cat} /> 
+                ))
+                }     
+            </ContainerCards>
+        </>
     )
 }

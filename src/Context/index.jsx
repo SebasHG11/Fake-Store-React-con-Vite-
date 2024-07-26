@@ -20,7 +20,12 @@ export const AppProvider = ({children}) =>{
 
     const [ordenDetalleSeleccionada, setOrdenDetalleSeleccionada] = useState([])
 
+    const [filtrarCategoria, setFiltrarCategoria] = useState('')
+
     const formatMonto = (amount) => {
+        if (typeof amount !== 'number' || isNaN(amount)) {
+            return '0' // Valor predeterminado en caso de que amount no sea un número
+        }
         return amount.toLocaleString('es-ES')
     }
 
@@ -60,7 +65,9 @@ export const AppProvider = ({children}) =>{
             setIsAdmin,
             userActual,
             setUserActual,
-            formatMonto
+            formatMonto,
+            filtrarCategoria,
+            setFiltrarCategoria
         }}>
             {children}
         </AppContext.Provider>
