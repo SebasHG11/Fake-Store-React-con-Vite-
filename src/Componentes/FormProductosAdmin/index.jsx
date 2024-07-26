@@ -53,6 +53,17 @@ export const FormProductosAdmin = () =>{
 
     const onSubmit = (event) =>{
         event.preventDefault()
+
+        if(nombreProducto.length === 0 || imagenProducto === 0){
+            toast.error("Los campos nombre e imagen son obligatorios", {duration: 3000})
+            return
+        }
+
+        if(parseFloat(precioProducto) <= 0){
+            toast.error("El precio debe ser mayor a $0", {duration: 3000})
+            return
+        }
+
         const envio ={
             nombre: nombreProducto,
             precio: parseFloat(precioProducto),

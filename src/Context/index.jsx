@@ -14,6 +14,8 @@ export const AppProvider = ({children}) =>{
     
     const [categoriaSeleccionadaEdit, setCategoriaSeleccionadaEdit] = useState(null)
 
+    const [usuarioSeleccionadoEdit, setUsuarioSeleccionadoEdit] = useState(null)
+
     const [asideDetalleOrden, setAsideDetalleOrden] = useState(false)
 
     const [ordenDetalleSeleccionada, setOrdenDetalleSeleccionada] = useState([])
@@ -40,6 +42,8 @@ export const AppProvider = ({children}) =>{
             setProductoSeleccionadoEdit,
             categoriaSeleccionadaEdit,
             setCategoriaSeleccionadaEdit,
+            usuarioSeleccionadoEdit,
+            setUsuarioSeleccionadoEdit,
             asideDetalleOrden,
             setAsideDetalleOrden,
             ordenDetalleSeleccionada,

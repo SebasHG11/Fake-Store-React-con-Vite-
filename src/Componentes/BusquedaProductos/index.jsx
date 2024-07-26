@@ -7,7 +7,7 @@ export const BusquedaProductos = ({busqueda, setBusqueda}) =>{
             <input 
             name="inputSearch"
             type="text"
-            placeholder='Ingresa un producto...'
+            placeholder='Ingresa...'
             value={busqueda}
             onChange={(event)=>{
                 setBusqueda(event.target.value)

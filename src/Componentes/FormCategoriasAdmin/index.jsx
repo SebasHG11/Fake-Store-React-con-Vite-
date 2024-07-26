@@ -37,6 +37,12 @@ export const FormCategoriasAdmin = () =>{
 
     const onSubmit = (event) =>{
         event.preventDefault()
+
+        if(nombreCategoria.length === 0 || imagenCategoria.length === 0){
+            toast.error("Llena todos los campos", {duration: 3000})
+            return
+        }
+
         const envio = {
             nombre: nombreCategoria,
             imagen: imagenCategoria

@@ -9,7 +9,7 @@ export const CardCuenta = () =>{
     const context = useContext(AppContext)
 
     const handleImageError = (event) => {
-        event.target.src = 'https://img.freepik.com/vector-gratis/circulo-azul-usuario-blanco_78370-4707.jpg?size=338&ext=jpg';
+        event.target.src = 'https://img.freepik.com/vector-gratis/circulo-azul-usuario-blanco_78370-4707.jpg?size=338&ext=jpg'
     }
 
     const handleEditarCuenta = (event) =>{

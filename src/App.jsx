@@ -14,6 +14,7 @@ import { RutaProtegida } from './Componentes/RutaProtegida'
 import { useContext } from 'react'
 import { Cuenta } from './Paginas/Cuenta'
 import { PaginaRegistro } from './Paginas/PaginaRegistro'
+import { UsuariosAdmin } from './Paginas/UsuariosAdmin'
 
 const AppRoutes = () =>{
   const context = useContext(AppContent)
@@ -72,6 +73,14 @@ const AppRoutes = () =>{
           <CategoriasAdmin />  
         </RutaProtegida>
       ) 
+    },
+    {
+      path: '/admin/usuarios',
+      element: (
+        <RutaProtegida>
+          <UsuariosAdmin />
+        </RutaProtegida>
+      )
     },
     {
       path: '/ordenes', 

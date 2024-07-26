@@ -6,7 +6,8 @@ export const PestañaAdmin = () =>{
         <aside className='pestaña-admin'>
             <h2>Inventario</h2>
             <span>
-                <NavLink 
+                <NavLink
+                to='/admin/usuarios' 
                 className='pestaña-admin-text'
                 >
                     Usuarios
