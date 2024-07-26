@@ -9,6 +9,7 @@ import axios from 'axios'
 
 export const Carrito = () =>{
     const context = useContext(AppContext)
+    const { formatMonto } = useContext(AppContext)
 
     const {sumaTotal} = useSumaTotal(context.carrito)
 
@@ -55,7 +56,7 @@ export const Carrito = () =>{
         {context.carrito.length > 0 &&(
             <>
             <div className='cabecera-carrito'>
-                <p>Total: ${sumaTotal}</p>
+                <p>Total: ${formatMonto(sumaTotal)}</p>
                 <span
                 onClick={(event)=>{
                     handleComprarCarrito(event)

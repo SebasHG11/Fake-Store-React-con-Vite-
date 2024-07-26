@@ -20,6 +20,10 @@ export const AppProvider = ({children}) =>{
 
     const [ordenDetalleSeleccionada, setOrdenDetalleSeleccionada] = useState([])
 
+    const formatMonto = (amount) => {
+        return amount.toLocaleString('es-ES')
+    }
+
     // Login
 
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -56,6 +60,7 @@ export const AppProvider = ({children}) =>{
             setIsAdmin,
             userActual,
             setUserActual,
+            formatMonto
         }}>
             {children}
         </AppContext.Provider>

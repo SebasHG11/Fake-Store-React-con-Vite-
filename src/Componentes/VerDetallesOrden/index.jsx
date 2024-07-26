@@ -9,6 +9,7 @@ export const VerDetallesOrden = () =>{
     const[productos, setProductos] = useState([])
 
     const context = useContext(AppContext)
+    const { formatMonto } = useContext(AppContext)
 
     const handleCerrarDetalleOrden = (event) =>{
         event.preventDefault()
@@ -65,7 +66,7 @@ export const VerDetallesOrden = () =>{
                 <h2>{formattedFecha}</h2>
                 <div className='container-cabecera-precio'>
                     <p>Precio Total:</p>
-                    <p className='container-cabecera-valor'>${context.ordenDetalleSeleccionada.precioTotalCompra}</p>
+                    <p className='container-cabecera-valor'>${formatMonto(context.ordenDetalleSeleccionada.precioTotalCompra)}</p>
                 </div>    
             </div>
             <div>

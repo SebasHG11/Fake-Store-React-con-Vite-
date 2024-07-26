@@ -5,6 +5,7 @@ import { ShoppingCartIcon, ArchiveBoxXMarkIcon, PlusCircleIcon, MinusCircleIcon 
 
 export const Card = ({ producto }) =>{
     const context = useContext(AppContext)
+    const { formatMonto } = useContext(AppContext)
 
     const productoEnCarrito = context.carrito.find(p => p.id === producto.id)
     const existeEnCarrito = context.carrito.some(p => p.id === producto.id)
@@ -58,7 +59,7 @@ export const Card = ({ producto }) =>{
             <p className='product-container-categoria'>{producto.categoria.nombre}</p>
             <img src={producto.imagen} alt={producto.nombre} className='product-container-img'/>
             <p className='product-container-name'>{producto.nombre}</p>
-            <p className='product-container-precio'>${producto.precio}</p>
+            <p className='product-container-precio'>${formatMonto(producto.precio)}</p>
             <span 
                 onClick={(event) =>agregarProductoaCarro(event, producto)} 
                 className={existeEnCarrito ? 'agregado-al-carro' : 'agregar-carro'}

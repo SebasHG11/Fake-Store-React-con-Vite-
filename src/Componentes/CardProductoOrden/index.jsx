@@ -1,6 +1,10 @@
+import { useContext } from 'react'
+import { AppContext } from '../../Context'
 import '../Card/styles.css'
 
 export const CardProductoOrden = ({producto}) =>{
+    const { formatMonto }= useContext(AppContext)
+
     return(
         <div className='product-container-orden'>
             <div>
@@ -10,7 +14,7 @@ export const CardProductoOrden = ({producto}) =>{
                 <p className='product-container-name'>{producto.nombre}</p>
             </div>
             <div>
-                <p className='product-container-precio'>${producto.precio}</p>      
+                <p className='product-container-precio'>${formatMonto(producto.precio)}</p>      
             </div>
             <div>
                 <p className='product-container-cantidad'>{producto.cantidad}</p>     
